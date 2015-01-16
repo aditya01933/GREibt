@@ -52,6 +52,8 @@ gem 'bootstrap_form'
 
 # Already mentioned above gem 'sass-rails', '>= 3.2'
 
+#Activeadmin for admin dashboard, can be viewed at /admin url
+gem 'activeadmin', github: 'activeadmin'
 
 #Dependencies for Bootstrap
 #gem "therubyracer"
