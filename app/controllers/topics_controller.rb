@@ -10,6 +10,7 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+    @topic = Topic.friendly.find(params[:id])
     @posts = Post.find_by_topic_id(params[:id])   
   end
 

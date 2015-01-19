@@ -55,6 +55,9 @@ gem 'bootstrap_form'
 #Activeadmin for admin dashboard, can be viewed at /admin url
 gem 'activeadmin', github: 'activeadmin'
 
+#For making beautiful url
+gem 'friendly_id'
+
 #Dependencies for Bootstrap
 #gem "therubyracer"
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
