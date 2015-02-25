@@ -47,3 +47,6 @@ is replaced with
 <%= f.password_field :password, autocomplete: "off", label: label %></tt>
 
 check link <a>http://stackoverflow.com/questions/27312101/devise-customization-issue-with-rails-bootstrap-forms/27334459#27334459</a>
+
+10.* check it out to create counter for number of associations.
+ <a> http://stackoverflow.com/questions/20653999/in-rails-how-to-count-the-number-of-associated-records-in-a-collection </a>

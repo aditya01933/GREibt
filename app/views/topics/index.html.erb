@@ -10,7 +10,7 @@
             <% @topics.each do |topic| %>
                 <%= link_to topic do %>
                   <li class="list-group-item ">
-                    <span class="badge">14</span>
+                    <span class="badge"><%= @topics.posts.count %></span>
                         <%= topic.issue %>
                   </li>      
                 <% end %>      

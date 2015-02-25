@@ -23,10 +23,11 @@
 
   		<% if @topic.posts.empty? %>
   			This movie has not been reviewed
-  		<% else %>	  
-       		<p><%= @posts.description %></p>
-       		<p></p>
-       		<p></p>
+  		<% else %>	
+  		  <% @topic.posts.each do |post| %>  
+       		<p><%= post.description %></p>
+       		
+          <% end %>
        	<% end %>	
       
 </div> 
