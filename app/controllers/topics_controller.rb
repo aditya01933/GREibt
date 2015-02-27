@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
   # GET /topics.json
   def index
     @topics = Topic.all
+    
 
   end
 
@@ -12,7 +13,7 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
-    @posts = Post.find_by_topic_id(params[:id])   
+   # @posts = Post.find_by_topic_id(params[:id])   
   end
 
   # GET /topics/new
