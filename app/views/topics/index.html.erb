@@ -6,19 +6,25 @@
 
       <div class="col-md-8">
             <h1>Listing topics</h1>
-            <ul class="list-group">
+
+            
             <% @topics.each do |topic| %>
+              <div class="panel panel-default">
+
                 <%= link_to topic do %>
-                  <li class="list-group-item ">
-                    <span class="badge"><%= topic.posts.count %></span>
-                        <%= topic.issue %>
-                  </li>      
+
+                      <div class="panel-body ">
+                          <%= topic.issue %>
+                      </div>      
+                      <div class="panel-footer"><span class="badge"><%= topic.posts.count %></span></div>   
+
                 <% end %>      
               
                 <!--link to send user to writing path-->
-              
+              </div> 
+
             <% end %>
-            </div>        
+                
             <%= link_to 'New Topic', new_topic_path %>
       </div>
 
