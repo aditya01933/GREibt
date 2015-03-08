@@ -1,38 +1,36 @@
-<div class="row">
-      <div class="col-md-2">
 
 
-      </div>
-
-      <div class="col-md-8">
             <h1>Listing topics</h1>
 
             
             <% @topics.each do |topic| %>
-              <div class="panel panel-default">
+               <div class="offer offer-warning">
+                   <div class="shape">
+                      <div class="shape-text">
+                          top             
+                      </div>
+                    </div>
 
-                <%= link_to topic do %>
+                   <%= link_to topic do %>
+                       <div class="offer-content">
+                          <div class="offer-text">
+                             <%= topic.issue %>
+                          </div> 
+                          </br>Total Essays <span class="badge"><%= topic.posts.count %></span>
+                       </div>
+                       </div>   
 
-                      <div class="panel-body fixed-panel ">
-                          <%= topic.issue %>
-                      </div>      
-                      <div class="panel-footer"><span class="badge"><%= topic.posts.count %></span></div>   
+                        
 
-                <% end %>      
+                    <% end %>      
+                        
+                          <!--link to send user to writing path-->
               
-                <!--link to send user to writing path-->
-              </div> 
 
             <% end %>
                 
             <%= link_to 'New Topic', new_topic_path %>
-      </div>
+
+
 
       
-
-      <div class="col-md-2">
-
-
-      </div>
-
-</div>

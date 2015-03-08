@@ -39,8 +39,8 @@ gem 'devise'
 gem 'bundler'
 
 #Polymer gem for view
-gem 'polymer-rails'
-gem 'polymer-core-rails'
+#gem 'polymer-rails'
+#gem 'polymer-core-rails'
 
 
 #Bootstrap
