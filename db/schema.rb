@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119140001) do
+ActiveRecord::Schema.define(version: 20150327141854) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -69,6 +69,20 @@ ActiveRecord::Schema.define(version: 20150119140001) do
     t.integer  "topic_id"
   end
 
+  create_table "quizzes", force: true do |t|
+    t.integer  "user_id"
+    t.string   "question"
+    t.string   "option1"
+    t.string   "option2"
+    t.string   "option3"
+    t.string   "option4"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "quizzes", ["user_id"], name: "index_quizzes_on_user_id"
+
   create_table "topics", force: true do |t|
     t.text     "issue",      default: "", null: false
     t.datetime "created_at"
@@ -89,13 +103,13 @@ ActiveRecord::Schema.define(version: 20150119140001) do
     t.date     "gre_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.string   "user_id"
     t.string   "myuserid"
     t.string   "slug"
   end
 
   add_index "userdetails", ["myuserid"], name: "index_userdetails_on_myuserid"
-  add_index "userdetails", ["user_id"], name: "index_userdetails_on_user_id"
+  add_index "userdetails", ["user_id"], name: "index_userdetails_on_user_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

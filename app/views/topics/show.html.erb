@@ -24,9 +24,6 @@
   			    This movie has not been reviewed
   		<% else %>	
   		      <% @topic.posts.each do |post| %>  
-       		
-       		
-
 
                     <section class="comment-list">
                       <!-- First Comment -->
@@ -54,7 +51,8 @@
                         </div>
                       </article>
 
-
+              <%= post.rating %>
+              <%= link_to 'Destroy', [@topic, post] , method: :delete, data: { confirm: 'Are you sure?' } %>
 
                       
             <% end %>

@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 
   def new
     @post = @topic.posts.build
+
     #@@topic = Topic.find(params[:topic_id1])
 
   end
@@ -48,6 +49,8 @@ class PostsController < ApplicationController
 
     @post = @topic.posts.build(post_params)
     current_user.posts << @post
+    @initial = 0
+    @post.rating = @initial
 
 
     #current_user.posts << @topic.posts.build(params[post_params])
@@ -73,6 +76,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def voteup
+    @post.rating = @initial+1
+  end  
+
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
@@ -92,7 +99,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to [@topic, @post], notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
