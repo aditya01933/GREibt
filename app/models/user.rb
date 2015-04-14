@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :topics, :through => :posts
+
+  has_one :marks
 end
