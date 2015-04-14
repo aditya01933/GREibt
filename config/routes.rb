@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :quizzes
+  resources :quizzes do
+    member do
+        get 'check' 
+        
+    end    
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

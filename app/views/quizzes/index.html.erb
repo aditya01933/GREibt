@@ -1,12 +1,25 @@
 <h1>Listing quizzes</h1>
 
+
+<% @quizzes.each do |quiz| %>
+
+
+        <%= form_tag check_quiz_path(quiz), :method => :get do %>
+            <p> <%= radio_button_tag :interest, quiz.option1 %> <%= quiz.option1 %> </p>
+            <p> <%= radio_button_tag :interest, quiz.option2 %> <%= quiz.option2 %> </p>
+            <p> <%= radio_button_tag :interest, "peach" %> <%= quiz.option3 %></p>
+            <p> <%= radio_button_tag :interest, "banana" %> <%= quiz.option4 %> </p>
+            <p> <%= submit_tag 'Choice' %> </p>
+        <% end %>    
+
+<% end %>
+
 <table>
   <thead>
     <tr>
       <th>User</th>
       <th>Question</th>
-      <th>Option1</th>
-      <th>Option2</th>
+      <th>Option1</th>      <th>Option2</th>
       <th>Option3</th>
       <th>Option4</th>
       <th>Answer</th>
