@@ -49,6 +49,9 @@ class UserdetailsController < ApplicationController
 
     @user.userdetail= @userdetail
    
+    score = Score.create(marks: 0)
+    muser = current_user
+    muser.score = score
     #@userdetail.user_id = current_user.id
 
     respond_to do |format|

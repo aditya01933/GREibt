@@ -7,11 +7,11 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.all
   end
 
-  @@current_marks = 0
+  
 
-  def marks (current_marks)
-    current_marks = current_marks + 1
-  end
+  # def marks (current_marks)
+  #   current_marks = current_marks + 1
+  # end
 
 
   def check
@@ -20,9 +20,13 @@ class QuizzesController < ApplicationController
     
     if answer == question.answer
       redirect_to quizzes_url
-
-      @@current_marks = marks (@@current_marks)
-      flash[:notice] = "correct answer#{@@current_marks}"
+       
+      #marking
+      current_marks = Score.find_by_users_id(current_user).marks
+      plus_one = current_marks +1 
+      current_marks.update(marks: plus_one)
+     
+      flash[:notice] = "correct answer#{current_marks}"
 
       
     else
