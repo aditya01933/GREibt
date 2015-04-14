@@ -7,12 +7,24 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.all
   end
 
+  @@current_marks = 0
+
+  def marks (current_marks)
+    current_marks = current_marks + 1
+  end
+
+
   def check
-    quest = Quiz.find(params[:id])    
-    answ = params[:interest] 
-    if answ == quest.answer
+    question = Quiz.find(params[:id])    
+    answer = params[:interest] 
+    
+    if answer == question.answer
       redirect_to quizzes_url
-      flash[:notice] = "correct answer"
+
+      @@current_marks = marks (@@current_marks)
+      flash[:notice] = "correct answer#{@@current_marks}"
+
+      
     else
       redirect_to quizzes_url
       flash[:notice] = "incorrect answer" 
