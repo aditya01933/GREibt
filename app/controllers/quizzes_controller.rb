@@ -3,18 +3,22 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes
   # GET /quizzes.json
+  @@n = 0
+  def next
+    @@n = @@n+5
+    redirect_to Quiz
+  end
+
+
   def index
-    @quizzes = Quiz.all
+    n =@@n
+    @quizzes = Quiz.where(:id => n..n+5)
+     #  @quizzes = Quiz.all
   end
 
   
 
-  # def marks (current_marks)
-  #   current_marks = current_marks + 1
-  # end
-
-
-  def check
+def check
     question = Quiz.find(params[:id])    
     answer = params[:interest] 
     
@@ -22,9 +26,10 @@ class QuizzesController < ApplicationController
       redirect_to quizzes_url
        
       #marking
-      current_marks = Score.find_by_users_id(current_user).marks
+
+      current_marks = Score.find_by_user_id(current_user).marks
       plus_one = current_marks +1 
-      current_marks.update(marks: plus_one)
+      current_user.score.update(marks: plus_one)
      
       flash[:notice] = "correct answer#{current_marks}"
 
@@ -33,11 +38,22 @@ class QuizzesController < ApplicationController
       redirect_to quizzes_url
       flash[:notice] = "incorrect answer" 
     end  
-   
+    
+    #for sidewindow
+    print_number
+  end
+  
+  def print_number
+    array_of_marks << 3
   end
 
-      
-    
+
+  # def marks (current_marks)
+  #   current_marks = current_marks + 1
+  # end
+
+
+   
 
   # GET /quizzes/1
   # GET /quizzes/1.json
