@@ -2,17 +2,27 @@ class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 
   # GET /quizzes
+  
   # GET /quizzes.json
-  @@n = 0
-  def next
-    @@n = @@n+5
-    redirect_to Quiz
-  end
+  
 
 
-  def index
-    n =@@n
-    @quizzes = Quiz.where(:id => n..n+5)
+  
+  def next2(t)
+
+     
+     @start1 = t
+     
+     return @start1
+   
+     
+   end
+
+
+  def index 
+  l = params[:start].to_i||0  
+  @start = next2(l)
+   @quizzes = Quiz.where(:id => @start..@start+4)
      #  @quizzes = Quiz.all
   end
 
@@ -40,7 +50,7 @@ def check
     end  
     
     #for sidewindow
-    print_number
+    #print_number
   end
   
   def print_number

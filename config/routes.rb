@@ -5,7 +5,7 @@ Rails.application.routes.draw do
         get 'check'         
     end    
   end
-  get '/next', to: 'quizzes#next'
+  get '/next2', to: 'quizzes#next2'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
