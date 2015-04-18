@@ -1,9 +1,9 @@
 <div class="col-md-4">
 
-<%= link_to 'first', quizzes_path(start: 0) %>
-<%= link_to 'second', quizzes_path(start: 5) %>
-<%= link_to 'third', quizzes_path(start: 10) %>
-<%= link_to 'forth', quizzes_path(start: 15) %>
+<%= link_to 'first', quizzes_path(start: 0) %></br>
+<%= link_to 'second', quizzes_path(start: 5) %></br>
+<%= link_to 'third', quizzes_path(start: 10) %></br>
+<%= link_to 'forth', quizzes_path(start: 15) %></br>
 
 
   
@@ -17,50 +17,26 @@
 
 
 <% @quizzes.each do |quiz| %>
+        </br>
+        <%= quiz.question %>
+        
+        </br>
         <%= form_tag check_quiz_path(quiz), :method => :get do %>
             <p> <%= radio_button_tag :interest, quiz.option1 %> <%= quiz.option1 %> </p>
             <p> <%= radio_button_tag :interest, quiz.option2 %> <%= quiz.option2 %> </p>
             <p> <%= radio_button_tag :interest, quiz.option3 %> <%= quiz.option3 %></p>
             <p> <%= radio_button_tag :interest, quiz.option4 %> <%= quiz.option4 %> </p>
             
-            <p> <%= submit_tag 'Check' %> </p>
+            <p> <%= submit_tag 'Check'%> </p>
         <% end %>    
 
-<% end %>
+<% end %> 
+</br>
 <%= link_to 'next', quizzes_path(start: @start+5) %>
+</br>
+</br>
+</br>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Question</th>
-      <th>Option1</th>      <th>Option2</th>
-      <th>Option3</th>
-      <th>Option4</th>
-      <th>Answer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @quizzes.each do |quiz| %>
-      <tr>
-        <td><%= quiz.user %></td>
-        <td><%= quiz.question %></td>
-        <td><%= quiz.option1 %></td>
-        <td><%= quiz.option2 %></td>
-        <td><%= quiz.option3 %></td>
-        <td><%= quiz.option4 %></td>
-        <td><%= quiz.answer %></td>
-        <td><%= link_to 'Show', quiz %></td>
-        <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
-        <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Quiz', new_quiz_path %>
 </div>
+
+

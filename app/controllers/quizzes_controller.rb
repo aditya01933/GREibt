@@ -54,10 +54,7 @@ class QuizzesController < ApplicationController
     #for sidewindow
     #print_number
   end
-  
-  def print_number
-    array_of_marks << 3
-  end
+
 
 
   # def marks (current_marks)
