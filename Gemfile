@@ -38,6 +38,8 @@ gem 'devise'
 
 gem 'bundler'
 
+gem 'acts_as_votable', '~> 0.10.0'
+
 #Polymer gem for view
 #gem 'polymer-rails'
 #gem 'polymer-core-rails'
