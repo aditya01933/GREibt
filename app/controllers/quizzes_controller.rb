@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
-
+ 
   # GET /quizzes
   
   # GET /quizzes.json
@@ -8,34 +8,36 @@ class QuizzesController < ApplicationController
 
 
   
-  def next2(t)
-
-     
-     @start1 = t
-     
-     return @start1
-   
-     
+  def next2(t)     
+     @start1 = t     
+     return @start1     
    end
-
+ 
 
   def index 
-  l = params[:start].to_i||0  
-  @start = next2(l)
-   @quizzes = Quiz.where(:id => @start..@start+4)
-     #  @quizzes = Quiz.all
+    
+     @start = params[:start].to_i||0 
+     @quizzes = Quiz.offset(@start).take(5)
+     #@quizzes = Quiz.where(:id => @start..@start+4)
+       #  @quizzes = Quiz.all
+     
+
   end
-
+ 
   
-
-def check
+  def check
+    
     question = Quiz.find(params[:id])    
     answer = params[:interest] 
     
+   
+    
+
     if answer == question.answer
       redirect_to quizzes_url
        
       #marking
+      # frame_marks1(t+1)
 
       current_marks = Score.find_by_user_id(current_user).marks
       plus_one = current_marks +1 
@@ -46,7 +48,7 @@ def check
       
     else
       redirect_to quizzes_url
-      flash[:notice] = "incorrect answer" 
+      flash[:notice] = "incorrect answer#{@frame_marks}" 
     end  
     
     #for sidewindow

@@ -1,6 +1,12 @@
 <div class="col-md-4">
 
+<%= link_to 'first', quizzes_path(start: 0) %>
+<%= link_to 'second', quizzes_path(start: 5) %>
+<%= link_to 'third', quizzes_path(start: 10) %>
+<%= link_to 'forth', quizzes_path(start: 15) %>
 
+
+  
 
 </div>
 <div class="col-md-8">
@@ -16,6 +22,7 @@
             <p> <%= radio_button_tag :interest, quiz.option2 %> <%= quiz.option2 %> </p>
             <p> <%= radio_button_tag :interest, quiz.option3 %> <%= quiz.option3 %></p>
             <p> <%= radio_button_tag :interest, quiz.option4 %> <%= quiz.option4 %> </p>
+            
             <p> <%= submit_tag 'Check' %> </p>
         <% end %>    
 
