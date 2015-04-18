@@ -12,6 +12,8 @@ class Post < ActiveRecord::Base
 
   validates_associated :topic
 
+  acts_as_votable
+
 
 
 end

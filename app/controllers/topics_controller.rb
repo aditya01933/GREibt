@@ -13,6 +13,9 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
+
+
+   
    # @posts = Post.find_by_topic_id(params[:id])   
   end
 
@@ -24,6 +27,8 @@ class TopicsController < ApplicationController
   # GET /topics/1/edit
   def edit
   end
+
+  
 
   # POST /topics
   # POST /topics.json

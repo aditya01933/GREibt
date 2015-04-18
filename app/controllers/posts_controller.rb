@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
   public
 
+  
   def new
     @post = @topic.posts.build
 
@@ -37,8 +38,19 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/new
+  def voteup
+    @post = Post.find(params[:post_id])
+   
+    @post.vote_by :voter => current_user
+    redirect_to topic_path(params[:topic_id])
+  end
 
-
+  def votedown
+    @post = Post.find(params[:post_id])
+    
+    @post.downvote_by current_user
+    redirect_to topic_path(params[:topic_id])
+  end
   # GET /posts/1/edit
   def edit
   end
@@ -76,9 +88,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def voteup
-    @post.rating = @initial+1
-  end  
+  # def voteup
+  #   @post.rating = @initial+1
+  # end  
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json

@@ -44,8 +44,17 @@
                               <div class="comment-post">
                                 <p>
                               <%= post.description %>
+
+                              <%= link_to 'Vote UP', controller: "posts", action: "voteup", post_id: post.id, topic_id: post.topic_id %>
+                                </br>
+                              
+                              <%= link_to 'Vote Down', controller: "posts", action: "votedown", post_id: post.id, topic_id: post.topic_id %>
+                              
+                              <%= post.votes_for.size - post.get_downvotes.size %>
+                              <%=  %>
                               </div>
-                              <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+
+                              <p class="text-right"><a href="#" class="btn btn-defau lt btn-sm"><i class="fa fa-reply"></i> reply</a></p>
                             </div>
                           </div>
                         </div>
