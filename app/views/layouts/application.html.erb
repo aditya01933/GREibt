@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<%= render 'layouts/header' %>
+
 
 <div class="col-md-2">
 
@@ -30,7 +32,7 @@
 
 
 
-          <div class="row">
+         <!--  <div class="row">
               <p class="navbar-text pull-right">
                 <% if user_signed_in? %>
                     Logged in as <strong><%= current_user.email %></strong>.
@@ -41,9 +43,9 @@
                     <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
                 <% end %>
               </p>
-          </div>
+          </div> -->
           <!--user authentication device end -->
-
+           
 
           <%= yield %>
 </div>
