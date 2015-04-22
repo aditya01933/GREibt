@@ -25,6 +25,14 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 
+  #API
+
+    namespace :api do
+      resources :users
+      resources :topics
+    end
+  
+
   # Thepriority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
