@@ -10,12 +10,7 @@
             
             <% @topics.each do |topic| %>
                <div class="offer offer-warning">
-                   <div class="shape">
-                      <div class="shape-text">
-                          top             
-                      </div>
-                    </div>
-
+                   
                    <%= link_to topic do %>
                        <div class="offer-content">
                           <div class="offer-text">
@@ -35,7 +30,6 @@
             <% end %>
                 
             <%= link_to 'New Topic', new_topic_path %>
-
-
+ 
 
       

@@ -40,10 +40,10 @@ hr {
 	transform:rotate(360deg);
 }
 .offer{
-	background:#fff; border:1px solid #ddd; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); margin: 15px 0; overflow:hidden;
+	background:#fff; border:1px solid #ddd; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); margin: 5px 0; overflow:hidden;
 }
 .offer:hover {
-    -webkit-transform: scale(1.01); 
+    -webkit-transform: scale(1.001); 
     -moz-transform: scale(1.01); 
     -ms-transform: scale(1.01); 
     -o-transform: scale(1.01); 
@@ -60,7 +60,7 @@ transition: all 0.2s ease-in-out;
 	border-radius:7px;
 }
 
-.offer-warning {	border-color: #f0ad4e; }
+.offer-warning {	border-color: #ea696d }
 .offer-warning .shape{
 	border-color: transparent #f0ad4e transparent transparent;
 }
