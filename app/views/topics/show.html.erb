@@ -1,72 +1,85 @@
-<p id="notice"><%= notice %></p>
-            <div class="box">
-                <div class="box-icon">
-                    <span class="fa fa-4x fa-html5"></span>
-                </div>
-                <div class="info">
-                    <h4 class="text-center">Issue</h4>
-                    <p><%= @topic.issue %></p>
-                    <a href="" class="btn"></a>
-                </div>
-  </div>
-			
 
-		
+  <div class="col-md-9">
 
-			<%= link_to 'Write', new_topic_post_path(topic_id: @topic) %>
-
-			<%= link_to 'Edit', edit_topic_path(@topic) %> |
-			<%= link_to 'Back', topics_path %>
-
-			
-
-  		<% if @topic.posts.empty? %>
-  			    This movie has not been reviewed
-  		<% else %>	
-  		      <% @topic.posts.each do |post| %>  
-
-                    <section class="comment-list">
-                      <!-- First Comment -->
-                      <article class="row">
-                        <div class="col-md-2 col-sm-2 hidden-xs">
-                          <figure class="thumbnail">
-                            <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
-                            <figcaption class="text-center">username</figcaption>
-                          </figure>
+                    <p id="notice"><%= notice %></p>
+                    <div class="offer offer-warning">
+                   
+                   
+                       <div class="offer-content">
+                          <div class="offer-text">
+                            <p><%= @topic.issue %></p>
+                            <a href="" class="btn"></a>
                         </div>
-                        <div class="col-md-10 col-sm-10">
-                          <div class="panel panel-default arrow left">
-                            <div class="panel-body">
-                              <header class="text-left">
-                                <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
-                                <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-                              </header>
-                              <div class="comment-post">
-                                <p>
-                              <%= post.description %>
+                      </div>
+                   </div>     
+      
+        			
 
-                              <%= link_to 'Vote UP', controller: "posts", action: "voteup", post_id: post.id, topic_id: post.topic_id %>
-                                </br>
+        		
+
+        			<%= link_to 'Write', new_topic_post_path(topic_id: @topic) %>
+
+        			<%= link_to 'Edit', edit_topic_path(@topic) %> |
+        			<%= link_to 'Back', topics_path %>
+
+        			
+
+          		<% if @topic.posts.empty? %>
+          			    This movie has not been reviewed
+          		<% else %>	
+          		      <% @topic.posts.each do |post| %>  
+
+                            <section class="comment-list">
+                              <!-- First Comment -->
+                              <article class="row">
+                                <div class="col-md-2 col-sm-2 hidden-xs">
+                                  <figure class="thumbnail">
+                                    <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+                                    <figcaption class="text-center">username</figcaption>
+                                  </figure>
+                                </div>
+                                <div class="col-md-10 col-sm-10">
+                                  <div class="panel panel-default arrow left panel-wid">
+                                    <div class="panel-body">
+                                      <header class="text-left">
+                                        <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
+                                        <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+                                      </header>
+                                      <div class="comment-post">
+                                        <p>
+                                      <%= post.description %>
+
+                                          <%= image_submit_tag "up.png", controller: "posts", action: "voteup", post_id: post.id, topic_id: post.topic_id, class: "xta" %>
+
+
+                                    
+
+                                        </br>
+                                      
+                                      <%= link_to 'Vote Down', controller: "posts", action: "votedown", post_id: post.id, topic_id: post.topic_id %>
+
+                                      
+                                      
+                                      <%= post.votes_for.size - post.get_downvotes.size %>
+                                      <%=  %>
+                                      </div>
+
+                                      <p class="text-right"><a href="#" class="btn btn-defau lt btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </article>
+
+                      <%= post.rating %>
+                      <%= link_to 'Destroy', [@topic, post] , method: :delete, data: { confirm: 'Are you sure?' } %>
+
                               
-                              <%= link_to 'Vote Down', controller: "posts", action: "votedown", post_id: post.id, topic_id: post.topic_id %>
-                              
-                              <%= post.votes_for.size - post.get_downvotes.size %>
-                              <%=  %>
-                              </div>
-
-                              <p class="text-right"><a href="#" class="btn btn-defau lt btn-sm"><i class="fa fa-reply"></i> reply</a></p>
-                            </div>
-                          </div>
-                        </div>
-                      </article>
-
-              <%= post.rating %>
-              <%= link_to 'Destroy', [@topic, post] , method: :delete, data: { confirm: 'Are you sure?' } %>
-
-                      
-            <% end %>
-        <% end %>       
-        
+                    <% end %>
+                <% end %>       
+    </div>
+    <div class="col-md-9">
+    </div>
 
 
-         
+
+                 

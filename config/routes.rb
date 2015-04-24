@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     end    
   end
   get '/next2', to: 'quizzes#next2'
-  get '/voteup', to: 'posts#voteup'
-   get '/votedown', to: 'posts#votedown'
+  post '/voteup', to: 'posts#voteup'
+  post '/votedown', to: 'posts#votedown'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
