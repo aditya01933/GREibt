@@ -1,0 +1,14 @@
+								
+
+								<% quiz = Quiz.find(9) %>
+                               <%= quiz.question %>
+        
+                                </br>
+                                <%= form_tag check_quiz_path(quiz), :method => :get do %>
+                                    <p> <%= radio_button_tag :interest, quiz.option1 %> <%= quiz.option1 %> </p>
+                                    <p> <%= radio_button_tag :interest, quiz.option2 %> <%= quiz.option2 %> </p>
+                                    <p> <%= radio_button_tag :interest, quiz.option3 %> <%= quiz.option3 %></p>
+                                    <p> <%= radio_button_tag :interest, quiz.option4 %> <%= quiz.option4 %> </p>
+                                    
+                                    <p> <%= submit_tag 'Check'%> </p>
+                                <% end %>  

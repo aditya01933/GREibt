@@ -12,5 +12,8 @@ class ApplicationController < ActionController::Base
   
   #Except will show index without login, We can also us "only:" to apply restriction to some elements
   before_action :authenticate_user!, except: [:index]
+
+
+
   
 end

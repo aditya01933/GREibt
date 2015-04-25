@@ -34,7 +34,7 @@ class QuizzesController < ApplicationController
     
 
     if answer == question.answer
-      redirect_to quizzes_url
+      redirect_to :back
        
       #marking
       # frame_marks1(t+1)
@@ -47,7 +47,7 @@ class QuizzesController < ApplicationController
 
       
     else
-      redirect_to quizzes_url
+      redirect_to :back
       flash[:notice] = "incorrect answer#{@frame_marks}" 
     end  
     

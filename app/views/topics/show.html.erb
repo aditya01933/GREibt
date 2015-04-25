@@ -1,7 +1,7 @@
 
-  <div class="col-md-9">
+ 
 
-                    <p id="notice"><%= notice %></p>
+                    
                     <div class="offer offer-warning">
                    
                    
@@ -61,10 +61,12 @@
                                             </div>
                                           </div>   
                                     <div class="col-md-2">
-                                           <%= image_submit_tag "up.png", controller: "posts", action: "voteup", post_id: post.id, topic_id: post.topic_id, class: "xta" %>          
+                                           <%= link_to image_tag "up.png", controller: "posts", action: "voteup", post_id: post.id, topic_id: post.topic_id, class: "xta" %>          
                                                                       
+                                         
+
                                            <%= post.votes_for.size - post.get_downvotes.size %>
-                                           <%= image_submit_tag "down.png", controller: "posts", action: "votedown", post_id: post.id, topic_id: post.topic_id, class: "xta" %>                                        
+                                           <%= link_to image_tag "down.png", controller: "posts", action: "votedown", post_id: post.id, topic_id: post.topic_id, class: "xta" %>                                        
                                     </div>                                
                                   </div>
                                       
@@ -79,9 +81,7 @@
                               
                     <% end %>
                 <% end %>       
-    </div>
-    <div class="col-md-9">
-    </div>
+    
 
 
 

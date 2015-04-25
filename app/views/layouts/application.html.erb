@@ -44,8 +44,14 @@
                       </div> -->
                       <!--user authentication device end -->
                        
-
-                      <%= yield %>
+                      <div class="row">
+                        <div class="col-md-9">
+                           <%= yield %>
+                        </div>
+                        <div class="col-md-3 qotd">
+                              <%= render 'layouts/quiz_of_the_day' %>
+                        </div>   
+                      </div>     
             </div>          
         </div>
 
