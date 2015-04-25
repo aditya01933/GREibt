@@ -40,31 +40,34 @@
                                 </div>
                                 <div class="col-md-10 col-sm-10">
                                   <div class="panel panel-default arrow left panel-wid">
+
+
                                     <div class="panel-body">
-                                      <header class="text-left">
-                                        <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
-                                        <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-                                      </header>
-                                      <div class="comment-post">
-                                        <p>
-                                      <%= post.description %>
 
-                                          <%= image_submit_tag "up.png", controller: "posts", action: "voteup", post_id: post.id, topic_id: post.topic_id, class: "xta" %>
+                                      <div class="row">
+                                         <div class="col-md-10">
 
 
-                                    
+                                            <header class="text-left">
+                                              <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
+                                              <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+                                            </header>
 
-                                        </br>
+                                     
+                                            <div class="comment-post">
+                                       
+                                        
+                                                <p><%= post.description %></p>
+                                            </div>
+                                          </div>   
+                                    <div class="col-md-2">
+                                           <%= image_submit_tag "up.png", controller: "posts", action: "voteup", post_id: post.id, topic_id: post.topic_id, class: "xta" %>          
+                                                                      
+                                           <%= post.votes_for.size - post.get_downvotes.size %>
+                                           <%= image_submit_tag "down.png", controller: "posts", action: "votedown", post_id: post.id, topic_id: post.topic_id, class: "xta" %>                                        
+                                    </div>                                
+                                  </div>
                                       
-                                      <%= link_to 'Vote Down', controller: "posts", action: "votedown", post_id: post.id, topic_id: post.topic_id %>
-
-                                      
-                                      
-                                      <%= post.votes_for.size - post.get_downvotes.size %>
-                                      <%=  %>
-                                      </div>
-
-                                      <p class="text-right"><a href="#" class="btn btn-defau lt btn-sm"><i class="fa fa-reply"></i> reply</a></p>
                                     </div>
                                   </div>
                                 </div>
