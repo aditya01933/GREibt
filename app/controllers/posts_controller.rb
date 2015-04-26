@@ -42,13 +42,16 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post_id])
    
     @post.vote_by :voter => current_user
+    @post.user.marks+=5
     redirect_to topic_path(params[:topic_id])
   end
 
   def votedown
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
     
     @post.downvote_by current_user
+    @post.user.score.marks-=5
+    
     redirect_to topic_path(params[:topic_id])
   end
   # GET /posts/1/edit

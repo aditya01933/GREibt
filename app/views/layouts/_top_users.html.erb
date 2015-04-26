@@ -1,0 +1,7 @@
+<% top_user = User.joins(:score).order('scores.marks').limit(10) %>
+<% top_user.each do |u| %>
+  <div class="top_users">
+   <%= u.userdetail.first_name %> <%= u.userdetail.last_name %> <div id = "score_color"><%= u.score.marks%></div>
+  </div> 
+<%end%>
+
