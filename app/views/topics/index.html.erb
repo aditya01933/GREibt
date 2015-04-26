@@ -6,7 +6,7 @@
             <hr>
                
             </div>
-            <hr >
+            
             <ol class="labels-list"> 
             <% @topics.each do |topic| %>
                <!-- <div class="offer offer-warning"> -->
@@ -15,7 +15,7 @@
                    
                  <li class = "list-text">  <%= link_to topic do %>
                       
-                             <%= topic.issue %>
+                             <%= topic.issue %></br>
                            
                           Total Essays <span class="badge"><%= topic.posts.count %></span>
                          

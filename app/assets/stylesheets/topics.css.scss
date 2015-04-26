@@ -271,6 +271,7 @@ background-image: url('assets/images/header.png');
 
 ol.labels-list {
     list-style-type: none;
+
   
      
     margin: 0;
@@ -280,24 +281,29 @@ ol.labels-list {
     counter-reset: li-counter;
 }
 ol.labels-list > li{
+
     position: relative;
     margin-bottom: 1.5em;
-    padding: 1.5em;
-    background-color: #eaeaea;
+    padding: 2.2em;
+    background-color: #fff;
+    min-height: 150px;
+    border-style: solid;
+    border-color: #ea696d;
+    border-width: 1px;
 }
 ol.labels-list > li:before {
     position: absolute;
     top: -0.3em;
     left: -0.5em;
-    width: 1.8em;
-    height: 1.2em;
+    width: 2.2em;
+    height: 1.6em;
      
     font-size: 2em;
     line-height: 1.2;
     font-weight: bold;
     text-align: center;
-    color: #464646;
-    background-color: #d0d0d0;
+    color: #fff;
+    background-color: #ea696d;
      
     transform: rotate(-20deg);
     -ms-transform: rotate(-20deg);
@@ -311,11 +317,10 @@ ol.labels-list > li:before {
 
 
 
-
 .list-text:hover{
--moz-box-shadow: 0 0 20px #ccc; 
--webkit-box-shadow: 0 0 20px #ccc; 
-box-shadow: 0 0 20px #ccc; 
+-moz-box-shadow: 0 0 20px #ea696d; 
+-webkit-box-shadow: 0 0 20px #ea696d; 
+box-shadow: 0 0 20px #ea696d; 
 
 }
 .list-text a {text-decoration:none;}
