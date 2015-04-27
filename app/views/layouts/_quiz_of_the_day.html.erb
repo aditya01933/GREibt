@@ -1,5 +1,6 @@
 								<% quiz = Quiz.find(9) %>
-                               <%= quiz.question %>
+                                <b>Quiz Of The Day:</b></br>
+                                <%= quiz.question %>
         
                                 </br>
                                 <%= form_tag check_quiz_path(quiz), :method => :get do %>

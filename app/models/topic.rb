@@ -5,10 +5,5 @@ class Topic < ActiveRecord::Base
   #extend FriendlyId
   #friendly_id :topic, use: :slugged
 
-  def self.last_user(t_id)
-  		self.a = t_id
-  		return a
-
-  end
-
+  
 end
