@@ -7,27 +7,35 @@
                
             </div>
             
-            <ol class="labels-list"> 
-            <% @topics.each do |topic| %>
-               <!-- <div class="offer offer-warning"> -->
-                   
-                    
-                   
-                 <li class = "list-text">  <%= link_to topic do %>
-                      
-                             <%= topic.issue %></br>
-                           
-                          Total Essays <span class="badge"><%= topic.posts.count %></span>
+            <ol class="labels-list">
+
+
+              <% @topics.each do |topic| %> 
+                                
+                    <li class = "list-text">
+
+                     <div class="row">
+                        <div class="col-md-2">
+                          <div class="row">
+                            <div class="col-md-9"><div id="topic_count"><%= topic.posts.count %></br><span >Essays</span></div></div>
+                              <div class="col-md-3"></div>
+                          </div>
                          
-
-                        
-
-                    <% end %>    
-                        
-                          <!--link to send user to writing path-->
-              </li>
-
-            <% end %>
+                        </div>  
+                        <div class="col-md-10"> 
+                          <div class="row">
+                            <div class="col-md-12">   
+                              <%= link_to topic do %>
+                                <%= topic.issue %> 
+                              <% end %>  
+                            </div>
+                            
+                          </div>    
+                        </div> 
+                      </div>                        
+                    </li>
+                   
+              <% end %>
             </ol>
                 
             <%= link_to 'New Topic', new_topic_path %>

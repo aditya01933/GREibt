@@ -6,8 +6,9 @@ class TopicsController < ApplicationController
   
   def index
     @topics = Topic.all
-    
-
+    if (params[:t_id])
+     @last_u = Topic.last_user(params[:t_id])
+    end
   end
 
   # GET /topics/1

@@ -14,5 +14,7 @@ ActiveAdmin.register Topic do
   #   permitted
   # end
 
+def last_user
 
+end
 end
