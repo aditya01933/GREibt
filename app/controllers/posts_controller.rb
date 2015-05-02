@@ -42,17 +42,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post_id])
    
     @post.vote_by :voter => current_user
-    @post.user.marks+=5
+    @post.user.score.marks+=5
     redirect_to topic_path(params[:topic_id])
   end
 
   def votedown
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
     
     @post.downvote_by current_user
     @post.user.score.marks-=5
     
-    redirect_to topic_path(params[:topic_id])
+     redirect_to topic_path(params[:topic_id])
   end
   # GET /posts/1/edit
   def edit
@@ -66,6 +66,8 @@ class PostsController < ApplicationController
     current_user.posts << @post
     @initial = 0
     @post.rating = @initial
+    
+    
 
 
     #current_user.posts << @topic.posts.build(params[post_params])
@@ -82,7 +84,8 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to [@topic, @post], notice: 'Post was successfully created.' }
+      
+        format.html { redirect_to topic_path(@topic), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }

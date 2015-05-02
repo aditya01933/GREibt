@@ -16,11 +16,12 @@
         			
 
         		
+              <%= button_to "Write Essay", new_topic_post_path(topic_id: @topic) , :class => "btn-default", :method => :get  %> 
+              <hr>    
+        	<!-- 		<%= link_to 'Write', new_topic_post_path(topic_id: @topic) %> -->
 
-        			<%= link_to 'Write', new_topic_post_path(topic_id: @topic) %>
-
-        			<%= link_to 'Edit', edit_topic_path(@topic) %> |
-        			<%= link_to 'Back', topics_path %>
+        		<!-- 	<%= link_to 'Edit', edit_topic_path(@topic) %> | -->
+      <!--   			<%= link_to 'Back', topics_path %> -->
 
         			
 
@@ -34,8 +35,9 @@
                               <article class="row">
                                 <div class="col-md-2 col-sm-2 hidden-xs">
                                   <figure class="thumbnail">
-                                    <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
-                                    <figcaption class="text-center">username</figcaption>
+                                  <%= image_tag("arrw1.jpg", :class => "img_preview") %>
+                                  <!--   <img class="img-responsive" src="/srk.jpg" /> -->
+                                    <figcaption class="text-center"><%= post.user.userdetail.first_name %></figcaption>
                                   </figure>
                                 </div>
                                 <div class="col-md-10 col-sm-10">
@@ -49,8 +51,8 @@
 
 
                                             <header class="text-left">
-                                              <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
-                                              <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+                                              <div class="comment-user"><i class="fa fa-user"></i> <%= post.user.userdetail.first_name %> <%= post.user.userdetail.last_name %>   </div>
+                                              <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= post.created_at %></time>
                                             </header>
 
                                      
@@ -61,14 +63,13 @@
                                             </div>
                                           </div>   
                                     <div class="col-md-2">
-                                           <%= link_to image_tag "up.png", controller: "posts", action: "voteup", post_id: post.id, topic_id: post.topic_id, class: "xta" %>          
-                                                                      
+                                           
+                                           <%=link_to (image_tag("up.png")), voteup_path(post_id: post.id, topic_id: post.topic_id), class: "xta" %>                     
 
-                                                                      
-                                         
+                                           <div class = xta-text><%= post.votes_for.size - post.get_downvotes.size %></div>
 
-                                           <%= post.votes_for.size - post.get_downvotes.size %>
-                                           <%= link_to image_tag "down.png", controller: "posts", action: "votedown", post_id: post.id, topic_id: post.topic_id, class: "xta" %>                                        
+                                           <%=link_to (image_tag("down.png")), votedown_path(post_id: post.id, topic_id: post.topic_id), class: "xta" %>
+                                                                                      
                                     </div>                                
                                   </div>
                                       
@@ -77,8 +78,8 @@
                                 </div>
                               </article>
 
-                      <%= post.rating %>
-                      <%= link_to 'Destroy', [@topic, post] , method: :delete, data: { confirm: 'Are you sure?' } %>
+                      
+                     <!--  <%= link_to 'Destroy', [@topic, post] , method: :delete, data: { confirm: 'Are you sure?' } %> -->
 
                               
                     <% end %>

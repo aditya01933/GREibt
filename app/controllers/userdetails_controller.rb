@@ -58,7 +58,7 @@ class UserdetailsController < ApplicationController
     
 
       if @userdetail.save
-        format.html { redirect_to @userdetail, notice: 'Userdetail was successfully created.' }
+        format.html { redirect_to topics_path, notice: 'User detail was successfully created.' }
         format.json { render :show, status: :created, location: @userdetail }
       else
         format.html { render :new }

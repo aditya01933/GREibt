@@ -43,12 +43,12 @@ class QuizzesController < ApplicationController
       plus_one = current_marks +1 
       current_user.score.update(marks: plus_one)
      
-      flash[:notice] = "correct answer#{current_marks}"
+      flash[:notice] = "correct answer#{current_marks+1}"
 
       
     else
       redirect_to :back
-      flash[:notice] = "incorrect answer#{@frame_marks}" 
+      flash[:notice] = "incorrect answer" 
     end  
     
     #for sidewindow

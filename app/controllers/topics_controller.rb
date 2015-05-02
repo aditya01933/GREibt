@@ -6,11 +6,8 @@ class TopicsController < ApplicationController
   
   def index
     @topics =  Topic.all
-    if (params.has_key?(:sort_param))
-      flash[:notice] = "cor"
-     @topics.order("created_at DESC")
-
-     end
+    
+   
   end
 
   # GET /topics/1
